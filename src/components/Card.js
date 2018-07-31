@@ -6,6 +6,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Star from './icons/Star';
 
 const styles = {
   card: {
@@ -27,23 +28,24 @@ const styles = {
 };
 
 function SimpleCard(props) {
-  const { classes } = props;
+  const { classes, name, rating, review } = props;
 
   return (
     <div className="card-container">
       <Card className={classes.card}>
         <CardContent className="card-height">
           <Typography className={classes.title} color="textSecondary">
-            {props.name}
+            {name}
           </Typography>
           <Typography variant="headline" component="h2">
-            {props.rating}
+            <Star value={rating} />
           </Typography>
           <Typography component="p">
-            {props.review}
+            {review}
           </Typography>
         </CardContent>
         <CardActions>
+          {/* TODO: add href to Button - lead to Reviews page*/}
           <Button size="small">Read More</Button>
         </CardActions>
       </Card>
