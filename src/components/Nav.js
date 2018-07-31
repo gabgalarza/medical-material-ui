@@ -7,11 +7,18 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import SimpleCard from './Card';
+import { Reviews } from './data/Reviews';
 
 
 function TabContainer({ children, dir }) {
+  const styles = {
+    padding: '24px 0',
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center'
+  };
   return (
-    <Typography component="div" dir={dir} style={{ padding: 8 * 3 }}>
+    <Typography component="div" dir={dir} style={styles}>
       {children}
     </Typography>
   );
@@ -55,9 +62,10 @@ class FullWidthTabs extends React.Component {
             centered
             fullWidth
           >
-            <Tab label="Item One" />
-            <Tab label="Item Two" />
-            <Tab label="Item Three" />
+            <Tab label="Reviews" />
+            <Tab label="About Us" />
+            <Tab label="Services" />
+            <Tab label="Contact" />
           </Tabs>
         </AppBar>
         <SwipeableViews
@@ -66,11 +74,12 @@ class FullWidthTabs extends React.Component {
           onChangeIndex={this.handleChangeIndex}
         >
           <TabContainer dir={theme.direction}>
-            <SimpleCard />
-            <SimpleCard />
-            <SimpleCard />
+            {Reviews.map((review, i) =>
+              <SimpleCard key={i} name={review.name} rating={review.rating} review={review.review}/>
+            )}
           </TabContainer>
-          <TabContainer dir={theme.direction}>Book Appointment</TabContainer>
+          <TabContainer dir={theme.direction}>About Us</TabContainer>
+          <TabContainer dir={theme.direction}>Services</TabContainer>
           <TabContainer dir={theme.direction}>Contact</TabContainer>
         </SwipeableViews>
       </div>
