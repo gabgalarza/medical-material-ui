@@ -53,7 +53,7 @@ class FullWidthTabs extends React.Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="static" color="primary">
+        <AppBar position="static" style={{ backgroundColor: '#000835' }}>
           <Tabs
             value={this.state.value}
             onChange={this.handleChange}
@@ -72,6 +72,7 @@ class FullWidthTabs extends React.Component {
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
           index={this.state.value}
           onChangeIndex={this.handleChangeIndex}
+          className="swipe-container"
         >
           <TabContainer dir={theme.direction}>
             {Reviews.map((review, i) =>

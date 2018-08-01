@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FullWidthTabs from './components/Nav.js';
+import Backdrop from './components/Backdrop';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import indigo from '@material-ui/core/colors/indigo';
 import pink from '@material-ui/core/colors/pink';

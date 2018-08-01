@@ -1,3 +1,5 @@
+/* TODO: extract styles for each section into sass components */
+
 .App {
   text-align: center;
 }
@@ -21,11 +23,26 @@
 .App-intro {
   font-size: large;
 }
+
+/* NAV */
+
+/* CARD */
 .card-container {
   margin: 0 20px 20px 20px;
 }
 .card-container .card-height {
   min-height: 150px;
+}
+
+.card-container .card {
+  max-width: 275px;
+  color: white;
+  background: transparent;
+}
+
+/* REACT SWIPE */
+.swipe-container {
+  background-image: linear-gradient(to top, #100c08, #1d0701, #24010d, #220120, #010a35);
 }
 
 @keyframes App-logo-spin {

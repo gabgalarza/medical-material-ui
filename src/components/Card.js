@@ -9,9 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import Star from './icons/Star';
 
 const styles = {
-  card: {
-    maxWidth: 275,
-  },
+
   bullet: {
     display: 'inline-block',
     margin: '0 2px',
@@ -32,7 +30,7 @@ function SimpleCard(props) {
 
   return (
     <div className="card-container">
-      <Card className={classes.card}>
+      <Card className="card">
         <CardContent className="card-height">
           <Typography className={classes.title} color="textSecondary">
             {name}
@@ -45,7 +43,7 @@ function SimpleCard(props) {
           </Typography>
         </CardContent>
         <CardActions>
-          {/* TODO: add href to Button - lead to Reviews page*/}
+          {/* TODO: add href to Button - lead to Reviews page */}
           <Button size="small">Read More</Button>
         </CardActions>
       </Card>
