@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FullWidthTabs from './components/Nav.js';
+import Text from './components/Text';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import indigo from '@material-ui/core/colors/indigo';
 import pink from '@material-ui/core/colors/pink';
@@ -22,6 +23,7 @@ class App extends Component {
       <div className="App">
         <MuiThemeProvider theme={theme}>
           <FullWidthTabs />
+          <Text/>
         </MuiThemeProvider>
       </div>
     );
