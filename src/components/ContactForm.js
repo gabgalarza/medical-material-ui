@@ -5,7 +5,7 @@ import Card from '@material-ui/core/Card';
 import { DatePicker } from 'material-ui-pickers';
 import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
 import DateFnsUtils from 'material-ui-pickers/utils/date-fns-utils';
-
+import Button from '@material-ui/core/Button';
 
 
 const styles = theme => ({
@@ -24,13 +24,16 @@ const styles = theme => ({
     },
     formContainer: {
         width: '40%',
+    },
+    button: {
+        margin: theme.spacing.unit,
     }
 });
 
 class ContactForm extends Component {
 
     state = {
-        selectedDate: '2018-01-01T00:00:00.000Z',
+        selectedDate: '1980-01-02T00:00:00.000Z',
     }
 
     handleDateChange = (date) => {
@@ -77,10 +80,25 @@ class ContactForm extends Component {
                                         value={selectedDate}
                                         onChange={this.handleDateChange}
                                         animateYearScrolling={false}
+                                        openToYearSelection={true}
+                                        format="DD/MM/YYYY"
                                     />
                                 </div>
                             </Fragment>
                         </MuiPickersUtilsProvider>
+                        <TextField
+                            id="symptomps"
+                            label="Describe Symptomps"
+                            className={classes.textField}
+                            margin="normal"
+                            multiline
+                        />
+                        <div>
+                            <Button variant="contained" color="primary" className={classes.button}>
+                                Submit
+                            </Button>
+                        </div>
+
                     </form>
                 </Card>
             </div>
