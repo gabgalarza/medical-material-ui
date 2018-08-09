@@ -8,6 +8,8 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import SimpleCard from './Card';
 import { Reviews } from './data/Reviews';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 
 
 function TabContainer({ children, dir }) {
@@ -30,8 +32,23 @@ TabContainer.propTypes = {
 };
 
 const styles = theme => ({
-  root: {
-    backgroundColor: theme.palette.background.paper,
+  swipeContainer: {
+    backgroundColor: theme.palette.primary.second,
+  },
+  appBar: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  menuIcon: {
+    [theme.breakpoints.down('sm')]: {
+      display: 'block',
+    },
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
+  },
+  loginBtn: {
+    float: 'right',
   },
 });
 
@@ -52,34 +69,40 @@ class FullWidthTabs extends React.Component {
     const { classes, theme } = this.props;
 
     return (
-      <div className={classes.root}>
-        <AppBar position="static" color="primary">
+      <div className="root">
+        <AppBar className={classes.appBar} position="sticky" color="primary">
+          <IconButton className={classes.menuIcon} color="inherit" aria-label="Menu">
+            <MenuIcon />
+          </IconButton>
           <Tabs
             value={this.state.value}
             onChange={this.handleChange}
             indicatorColor="secondary"
             textColor="inherit"
             centered
-            fullWidth
-          >
-            <Tab label="Reviews" />
+            >
+            <Tab label="Book" />
             <Tab label="About Us" />
             <Tab label="Services" />
+            <Tab label="Reviews" />
             <Tab label="Contact" />
           </Tabs>
+          {/*<Button className={classes.loginBtn} color="inherit">Login</Button>*/}
         </AppBar>
         <SwipeableViews
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
           index={this.state.value}
           onChangeIndex={this.handleChangeIndex}
+          className={classes.swipeContainer}
         >
+          <TabContainer dir={theme.direction}>Book</TabContainer>
+          <TabContainer dir={theme.direction}>About Us</TabContainer>
+          <TabContainer dir={theme.direction}>Services</TabContainer>
           <TabContainer dir={theme.direction}>
             {Reviews.map((review, i) =>
               <SimpleCard key={i} name={review.name} rating={review.rating} review={review.review}/>
             )}
           </TabContainer>
-          <TabContainer dir={theme.direction}>About Us</TabContainer>
-          <TabContainer dir={theme.direction}>Services</TabContainer>
           <TabContainer dir={theme.direction}>Contact</TabContainer>
         </SwipeableViews>
       </div>

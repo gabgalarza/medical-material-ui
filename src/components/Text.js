@@ -38,8 +38,8 @@ function Text(props) {
                 </Typography>
                 <div id="videoWrapper">
                     <iframe id="video" title="Never gonna give you up"
-                            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                            allow="autoplay; encrypted-media" allowFullScreen></iframe>
+                      src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                      allow="autoplay; encrypted-media" allowFullScreen></iframe>
                 </div>
             </Paper>
 

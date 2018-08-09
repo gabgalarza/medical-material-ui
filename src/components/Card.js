@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Star from './icons/Star';
 
@@ -25,6 +23,9 @@ const styles = {
   pos: {
     marginBottom: 12,
   },
+  rating: {
+    color: '#ffbf00',
+  }
 };
 
 function SimpleCard(props) {
@@ -38,16 +39,12 @@ function SimpleCard(props) {
             {name}
           </Typography>
           <Typography variant="headline" component="h2">
-            <Star value={rating} />
+            <Star value={rating} color={classes.rating} />
           </Typography>
           <Typography component="p">
             {review}
           </Typography>
         </CardContent>
-        <CardActions>
-          {/* TODO: add href to Button - lead to Reviews page*/}
-          <Button size="small">Read More</Button>
-        </CardActions>
       </Card>
     </div>
   );
