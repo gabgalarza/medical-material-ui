@@ -5,11 +5,13 @@
   "dependencies": {
     "@material-ui/core": "^1.4.2",
     "@material-ui/icons": "^2.0.0",
+    "ajv": "^6.5.2",
+    "jss": "^9.8.7",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-scripts": "1.1.4",
-    "typeface-roboto": "0.0.54",
-    "react-swipeable-views": "^0.12.15"
+    "react-swipeable-views": "^0.12.15",
+    "typeface-roboto": "0.0.54"
   },
   "scripts": {
     "start": "react-scripts start",

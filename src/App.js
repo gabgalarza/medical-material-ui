@@ -3,7 +3,7 @@ import FullWidthTabs from './components/Nav.js';
 import Text from './components/Text';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import pink from '@material-ui/core/colors/pink';
-import './App.css';
+import './css/App.css';
 
 //TODO: import Modal and use in the Text section
 
