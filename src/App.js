@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import FullWidthTabs from './components/Nav.js';
+import Nav from './components/Nav.js';
+import Hero from './components/Hero';
 import Text from './components/Text';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import pink from '@material-ui/core/colors/pink';
 import './css/App.css';
 
 //TODO: import Modal and use in the Text section
-
 class App extends Component {
   render() {
     const theme = createMuiTheme({
       palette: {
         primary: {
-          main: '#2c387e',
-          second: '#3f51b5',
+          main: '#1d2c81',
+          second: '#31e0f5',
         },
         secondary: pink,
         text: 'white',
@@ -26,7 +26,8 @@ class App extends Component {
     return (
       <div className="App">
         <MuiThemeProvider theme={theme}>
-          <FullWidthTabs />
+          <Hero />
+          <Nav />
           <Text />
         </MuiThemeProvider>
       </div>

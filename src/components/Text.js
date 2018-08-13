@@ -42,7 +42,6 @@ function Text(props) {
                       allow="autoplay; encrypted-media" allowFullScreen></iframe>
                 </div>
             </Paper>
-
         </div>
     );
 }

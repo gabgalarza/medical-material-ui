@@ -52,7 +52,7 @@ const styles = theme => ({
   },
 });
 
-class FullWidthTabs extends React.Component {
+class Nav extends React.Component {
   state = {
     value: 0,
   };
@@ -110,9 +110,9 @@ class FullWidthTabs extends React.Component {
   }
 }
 
-FullWidthTabs.propTypes = {
+Nav.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(FullWidthTabs);
+export default withStyles(styles, { withTheme: true })(Nav);
