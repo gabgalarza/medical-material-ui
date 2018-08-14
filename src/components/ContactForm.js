@@ -72,7 +72,7 @@ class ContactForm extends Component {
                             className={classes.textField}
                             margin="normal"
                         />
-                        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                        <MuiPickersUtilsProvider utils={DateFnsUtils} >
                             <Fragment>
                                 <div className="picker">
                                     <DatePicker
