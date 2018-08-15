@@ -7,6 +7,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import SimpleCard from './Card';
+import ContactForm from './ContactForm';
 import { Reviews } from './data/Reviews';
 
 
@@ -80,7 +81,9 @@ class FullWidthTabs extends React.Component {
           </TabContainer>
           <TabContainer dir={theme.direction}>About Us</TabContainer>
           <TabContainer dir={theme.direction}>Services</TabContainer>
-          <TabContainer dir={theme.direction}>Contact</TabContainer>
+          <TabContainer dir={theme.direction}>
+            <ContactForm/>
+          </TabContainer>
         </SwipeableViews>
       </div>
     );
