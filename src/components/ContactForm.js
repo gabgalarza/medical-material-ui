@@ -46,14 +46,15 @@ class ContactForm extends Component {
 
         return(
             <div className={classes.formContainer}>
+                <form className={classes.container} >
                 <Card className={classes.card} >
-                    <form className={classes.container} >
+                    <h1>
                         <TextField
-                            id="firstName"
-                            label="First name"
-                            className={classes.textField}
-                            margin="normal"
-                        />
+                                id="firstName"
+                                label="First name"
+                                className={classes.textField}
+                                margin="normal"
+                            />
                         <TextField
                             id="lastName"
                             label="Last name"
@@ -66,12 +67,8 @@ class ContactForm extends Component {
                             className={classes.textField}
                             margin="normal"
                         />
-                        <TextField
-                            id="dob"
-                            label="Date of Birth"
-                            className={classes.textField}
-                            margin="normal"
-                        />
+                    </h1>
+                <h2>
                         <MuiPickersUtilsProvider utils={DateFnsUtils} >
                             <Fragment>
                                 <div className="picker">
@@ -93,14 +90,17 @@ class ContactForm extends Component {
                             margin="normal"
                             multiline
                         />
+                    </h2>
                         <div>
                             <Button variant="contained" color="primary" className={classes.button}>
                                 Submit
                             </Button>
+                            <Button variant="contained" color="secondary" className={classes.button}>
+                                Cancel
+                            </Button>
                         </div>
-
-                    </form>
                 </Card>
+                </form>
             </div>
         );
     }
