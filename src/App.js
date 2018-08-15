@@ -12,7 +12,7 @@ class App extends Component {
     const theme = createMuiTheme({
       palette: {
         primary: {
-          main: '#1d2c81',
+          main: '#0F0766',
           second: '#31e0f5',
         },
         secondary: pink,
@@ -26,8 +26,8 @@ class App extends Component {
     return (
       <div className="App">
         <MuiThemeProvider theme={theme}>
-          <Hero />
           <Nav />
+          <Hero />
           <Text />
         </MuiThemeProvider>
       </div>

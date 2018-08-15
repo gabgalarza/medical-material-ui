@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import SwipeableViews from 'react-swipeable-views';
+//import SwipeableViews from 'react-swipeable-views';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-import SimpleCard from './Card';
-import { Reviews } from './data/Reviews';
+//import SimpleCard from './Card';
+//import { Reviews } from './data/Reviews';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
 
-function TabContainer({ children, dir }) {
+const TabContainer = ({ children, dir }) => {
   const styles = {
     padding: '24px 0',
     display: 'flex',
@@ -71,7 +71,7 @@ class Nav extends React.Component {
     return (
       <div className="root">
         <AppBar className={classes.appBar} position="sticky" color="primary">
-          <IconButton className={classes.menuIcon} color="inherit" aria-label="Menu">
+          <IconButton className={classes.menuIcon} color="secondary" aria-label="Menu">
             <MenuIcon />
           </IconButton>
           <Tabs
@@ -81,30 +81,26 @@ class Nav extends React.Component {
             textColor="inherit"
             centered
             >
-            <Tab label="Book" />
             <Tab label="About Us" />
-            <Tab label="Services" />
             <Tab label="Reviews" />
             <Tab label="Contact" />
           </Tabs>
           {/*<Button className={classes.loginBtn} color="inherit">Login</Button>*/}
         </AppBar>
-        <SwipeableViews
+        {/*<SwipeableViews
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
           index={this.state.value}
           onChangeIndex={this.handleChangeIndex}
           className={classes.swipeContainer}
         >
-          <TabContainer dir={theme.direction}>Book</TabContainer>
           <TabContainer dir={theme.direction}>About Us</TabContainer>
-          <TabContainer dir={theme.direction}>Services</TabContainer>
           <TabContainer dir={theme.direction}>
             {Reviews.map((review, i) =>
               <SimpleCard key={i} name={review.name} rating={review.rating} review={review.review}/>
             )}
           </TabContainer>
           <TabContainer dir={theme.direction}>Contact</TabContainer>
-        </SwipeableViews>
+        </SwipeableViews>*/}
       </div>
     );
   }

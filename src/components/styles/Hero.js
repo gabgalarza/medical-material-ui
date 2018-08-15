@@ -1,36 +1,33 @@
-//import Background from '../../imgs/harold-hero.jpg';
-
 const heroStyles = theme => ({
   hero: {
     display: 'flex',
     flexFlow: 'column wrap',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     height: '100vh',
-    background: 'linear-gradient(to bottom, #d00040, #b9005d, #950074, #652181, #1d2c81)',
+    background: 'radial-gradient(circle at bottom, #e01171, #560071, #0f0766)',
     color: theme.palette.primary.text
   },
   top: {
-    alignItems: 'flex-start',
     wordWrap: 'break-word',
-    color: theme.palette.primary.main
+    color: theme.palette.primary.second
   },
   topFont: {
     fontFamily: 'RequiemFine',
-    fontSize: '2.8rem',
     fontWeight: 'bolder',
-    letterSpacing: '2.5rem'
+  },
+  topFontSecondary: {
+    fontWeight: 200,
   },
   bottom: {
-    padding: '0 1.5rem 5rem',
     fontFamily: 'Roboto',
     alignItems: 'flex-end',
-    color: theme.palette.primary.second
+    color: theme.palette.primary.main
   },
   bottomFont: {
     fontWeight: '300',
-    fontSize: '2.8rem'
+    fontSize: '2.3rem'
   },
-  bottomSecondary: {
+  text: {
     color: theme.palette.text,
     fontWeight: '500'
   }
