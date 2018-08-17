@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-//import SwipeableViews from 'react-swipeable-views';
+import SwipeableViews from 'react-swipeable-views';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-//import SimpleCard from './Card';
-//import { Reviews } from './data/Reviews';
+import SimpleCard from './Card';
+import { Reviews } from './data/Reviews';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import Grade from '@material-ui/icons/Grade';
+import Event from '@material-ui/icons/Event';
+import Chat from '@material-ui/icons/Chat';
+import MobileMenu from './Drawer.js';
 
 
 const TabContainer = ({ children, dir }) => {
@@ -26,22 +31,24 @@ const TabContainer = ({ children, dir }) => {
   );
 }
 
-TabContainer.propTypes = {
-  children: PropTypes.node.isRequired,
-  dir: PropTypes.string.isRequired,
-};
-
 const styles = theme => ({
   swipeContainer: {
-    backgroundColor: theme.palette.primary.second,
+    backgroundColor: theme.palette.secondary.dark,
+    height: 300,
+    position: 'fixed',
+    bottom: 0,
+    display: 'none'
   },
   appBar: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
+    position: 'fixed',
+    top: 'unset',
+    bottom: 0
   },
   menuIcon: {
     [theme.breakpoints.down('sm')]: {
-      display: 'block',
+      display: 'block'
     },
     [theme.breakpoints.up('md')]: {
       display: 'none',
@@ -52,9 +59,20 @@ const styles = theme => ({
   },
 });
 
-class Nav extends React.Component {
-  state = {
-    value: 0,
+class Nav extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: 0,
+      isOpen: false,
+    };
+  }
+
+  toggleDrawer = (side, open) => () => {
+    this.setState({
+      [side]: open,
+    });
   };
 
   handleChange = (event, value) => {
@@ -70,10 +88,18 @@ class Nav extends React.Component {
 
     return (
       <div className="root">
-        <AppBar className={classes.appBar} position="sticky" color="primary">
-          <IconButton className={classes.menuIcon} color="secondary" aria-label="Menu">
+        <MobileMenu
+          open={this.state.isOpen}
+          closed={this.toggleDrawer('isOpen', false)} />
+        <AppBar className={classes.appBar} color="primary">
+          <IconButton
+            onClick={this.toggleDrawer('isOpen', true)}
+            className={classes.menuIcon}
+            color="secondary"
+            aria-label="Menu">
             <MenuIcon />
           </IconButton>
+
           <Tabs
             value={this.state.value}
             onChange={this.handleChange}
@@ -81,13 +107,15 @@ class Nav extends React.Component {
             textColor="inherit"
             centered
             >
-            <Tab label="About Us" />
-            <Tab label="Reviews" />
-            <Tab label="Contact" />
+            <Tab icon={<Event />} />
+            <Tab icon={<Grade />} />
+            <Tab icon={<AccountCircle />} />
+            <Tab icon={<Chat />} />
           </Tabs>
+
           {/*<Button className={classes.loginBtn} color="inherit">Login</Button>*/}
         </AppBar>
-        {/*<SwipeableViews
+        <SwipeableViews
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
           index={this.state.value}
           onChangeIndex={this.handleChangeIndex}
@@ -100,11 +128,16 @@ class Nav extends React.Component {
             )}
           </TabContainer>
           <TabContainer dir={theme.direction}>Contact</TabContainer>
-        </SwipeableViews>*/}
+        </SwipeableViews>
       </div>
     );
   }
 }
+
+TabContainer.propTypes = {
+  children: PropTypes.node.isRequired,
+  dir: PropTypes.string.isRequired,
+};
 
 Nav.propTypes = {
   classes: PropTypes.object.isRequired,
